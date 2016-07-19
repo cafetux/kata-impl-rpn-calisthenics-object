@@ -40,6 +40,7 @@ After implementations was done, try to follows theses constraints:
 - No Classes With More Than Two Instance Variables
 - No Getters/Setters/Properties
 
+more détails here: http://williamdurand.fr/2013/06/03/object-calisthenics/
 
 
 
