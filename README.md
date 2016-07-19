@@ -8,7 +8,7 @@ Reverse Polish notation (RPN) is a mathematical notation in which every operator
 
 _exemples:_
 
->5 3 + => 5+3 => 8
+` 5 3 + => 5+3 => 8
 
 
 >6 2 /  => 6/2 => 3
