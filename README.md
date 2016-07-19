@@ -9,12 +9,15 @@ Reverse Polish notation (RPN) is a mathematical notation in which every operator
 _exemples:_
 
 >5 3 +
+
 is equals to 8 (5+3)
 
 >6 2 /
+
 is equal to 3 (6/2)
 
 >1 2 + 4 × 5 + 3 −
+
 is equivalent to ((1+2) x 4) + 5 - 3
 
 and
