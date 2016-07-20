@@ -4,7 +4,7 @@ import fr.cafetux.rpn.Operand;
 import fr.cafetux.rpn.Stack;
 
 
-public class Multiplication extends Operator {
+public class Multiplication implements Operator {
 
     Multiplication() {
         super();

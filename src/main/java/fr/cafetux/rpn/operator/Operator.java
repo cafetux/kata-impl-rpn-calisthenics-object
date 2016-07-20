@@ -4,12 +4,8 @@ import fr.cafetux.rpn.Operand;
 import fr.cafetux.rpn.Stack;
 
 
-public abstract class Operator {
+public interface Operator {
 
-    Operator(){
-
-    }
-
-    public abstract Operand operate(Stack stack);
+    public Operand operate(Stack stack);
 
 }

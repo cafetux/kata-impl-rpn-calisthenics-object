@@ -3,7 +3,7 @@ package fr.cafetux.rpn.operator;
 import fr.cafetux.rpn.Operand;
 import fr.cafetux.rpn.Stack;
 
-public class Addition extends Operator {
+public class Addition implements Operator {
 
     Addition() {
         super();
