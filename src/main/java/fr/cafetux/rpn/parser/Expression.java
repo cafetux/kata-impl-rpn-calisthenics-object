@@ -1,10 +1,11 @@
 package fr.cafetux.rpn.parser;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
-public class Expression {
+public class Expression implements Iterable<ExpressionMember>{
 
     private List<ExpressionMember> members = new ArrayList<>();
 
@@ -12,7 +13,9 @@ public class Expression {
         this.members.add(member);
     }
 
-    public List<ExpressionMember> forEach() {
-        return members;
+
+    @Override
+    public Iterator<ExpressionMember> iterator() {
+        return members.iterator();
     }
 }

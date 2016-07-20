@@ -14,7 +14,7 @@ public class RpnCalculator {
         RpnExpression expression = new RpnExpression(input);
         Stack toOperate = new Stack();
 
-        for (ExpressionMember member : expression.forEach()) {
+        for (ExpressionMember member : expression) {
             resolveMember(toOperate, member);
         }
         return toOperate.unique();
