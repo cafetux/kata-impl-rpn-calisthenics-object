@@ -24,7 +24,7 @@ _exemples:_
 
 In other way,
 
-- 3 5 4 1 2 + × + − => 5 + (4 x (1+2)) - 3 
+- 5 4 1 2 + × + − => 5 + (4 x (1+2)) 
 
 
 ## Object calisthenics
