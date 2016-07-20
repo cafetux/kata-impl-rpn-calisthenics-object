@@ -6,13 +6,16 @@ import fr.cafetux.rpn.Stack;
 
 public class Multiplication implements Operator {
 
+    public static final Multiplication MULTIPLICATION = new Multiplication();
+
     Multiplication() {
         super();
     }
 
-    public Operand operate(Stack stack) {
+    public Stack operate(Stack stack) {
         Operand operand2 = stack.pop();
         Operand operand1 = stack.pop();
-        return operand1.multiplyBy(operand2);
+        stack.push(operand1.multiplyBy(operand2));
+        return stack;
     }
 }

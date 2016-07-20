@@ -5,14 +5,17 @@ import fr.cafetux.rpn.Stack;
 
 public class Addition implements Operator {
 
+    public static final Addition ADDITION = new Addition();
+
     Addition() {
         super();
     }
 
     @Override
-    public Operand operate(Stack stack) {
+    public Stack operate(Stack stack) {
         Operand operand2 = stack.pop();
         Operand operand1 = stack.pop();
-        return operand1.plus(operand2);
+        stack.push(operand1.plus(operand2));
+        return stack;
     }
 }

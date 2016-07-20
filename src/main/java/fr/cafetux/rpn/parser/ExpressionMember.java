@@ -17,15 +17,16 @@ public class ExpressionMember {
         value=value.concat(toConcat);
     }
 
-    public String value(){
-        return value;
-    }
-
     public boolean isFilled() {
         return value!=null && !value.trim().isEmpty();
     }
 
     public boolean isNumeric(){
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return value;
     }
 }

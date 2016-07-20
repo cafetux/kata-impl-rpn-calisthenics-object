@@ -1,36 +1,20 @@
 package fr.cafetux.rpn.operator;
 
-import static java.lang.String.valueOf;
+import java.util.HashMap;
+import java.util.Map;
 
+import static java.util.Optional.ofNullable;
 
 public class OperatorFactory {
 
-
-    private static final Operator ADDITION = new Addition();
-    private static final Operator SOUSTRACTION = new Soustraction();
-    private static final Operator MULTIPLICATION = new Multiplication();
-    private static final Operator DIVISION = new Division();
-    private static final Operator SQUARE = new Square();
+    private Map<String,Operator> operators = new HashMap<>();
 
     public Operator get(String sign){
-
-        switch (sign) {
-            case "+":
-                return (ADDITION);
-            case "-":
-                return (SOUSTRACTION);
-            case "*":
-                return (MULTIPLICATION);
-            case "/":
-                return (DIVISION);
-            case "²":
-                return (SQUARE);
-            default:
-                throw new IllegalArgumentException("invalid operator "+sign);
-        }
+        return ofNullable(operators.get(sign))
+                .orElseThrow(()->new IllegalArgumentException("invalid operator "+sign));
     }
 
-    public Operator get(char sign) {
-        return get(valueOf(sign));
+    public void register(String operator,Operator implementation){
+        operators.put(operator,implementation);
     }
 }

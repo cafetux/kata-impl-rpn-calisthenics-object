@@ -5,14 +5,17 @@ import fr.cafetux.rpn.Stack;
 
 public class Soustraction implements Operator {
 
+    public static final Soustraction SOUSTRACTION = new Soustraction();
+
     Soustraction(){
         super();
     }
 
     @Override
-    public Operand operate(Stack stack) {
+    public Stack operate(Stack stack) {
         Operand operand2 = stack.pop();
         Operand operand1 = stack.pop();
-        return operand1.moins(operand2);
+        stack.push(operand1.moins(operand2));
+        return stack;
     }
 }
