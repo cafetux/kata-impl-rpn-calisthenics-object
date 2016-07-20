@@ -18,7 +18,7 @@ public class RpnCalculator {
         factory.register("-", SOUSTRACTION);
         factory.register("*", MULTIPLICATION);
         factory.register("/", DIVISION);
-        factory.register("²", SQUARE);
+        factory.register("SQR", SQUARE);
     }
 
     public float resolve(String input) {

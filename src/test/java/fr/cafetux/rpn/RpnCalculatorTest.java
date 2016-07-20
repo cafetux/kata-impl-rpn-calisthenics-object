@@ -33,7 +33,8 @@ public class RpnCalculatorTest {
 
     @Test
     public void should_cumul_differents_signs_at_the_end_of_same_operation() {
-        assertThat(result("7 5 2 - +")).as("5 2 - 7 + must be equals to 7 5 2 - +").isEqualTo(result("5 2 - 7 +")).isEqualTo(10.0f);
+        assertThat(result("7 5 2 - +")).as("5 2 - 7 + must be equals to 7 5 2 - +").isEqualTo(
+                result("5 2 - 7 +")).isEqualTo(10.0f);
     }
 
     @Test
@@ -42,8 +43,8 @@ public class RpnCalculatorTest {
     }
 
     @Test
-    public void should_square_operands() {
-        assertThat(result("5 2 * ²")).isEqualTo(100.0f);
+    public void should_accept_multi_characters_operator() {
+        assertThat(result("5 2 * SQR")).isEqualTo(100.0f);
     }
 
     @Test

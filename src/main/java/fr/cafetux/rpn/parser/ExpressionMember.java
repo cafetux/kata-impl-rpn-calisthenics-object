@@ -9,18 +9,6 @@ public class ExpressionMember {
         this.value = value;
     }
 
-    public ExpressionMember() {
-        this.value="";
-    }
-
-    public void concat(String toConcat){
-        value=value.concat(toConcat);
-    }
-
-    public boolean isFilled() {
-        return value!=null && !value.trim().isEmpty();
-    }
-
     public boolean isNumeric(){
         return false;
     }
