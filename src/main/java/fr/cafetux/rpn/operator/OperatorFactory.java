@@ -10,6 +10,7 @@ public class OperatorFactory {
     private static final Operator SOUSTRACTION = new Soustraction();
     private static final Operator MULTIPLICATION = new Multiplication();
     private static final Operator DIVISION = new Division();
+    private static final Operator SQUARE = new Square();
 
     public Operator get(String sign){
 
@@ -22,6 +23,8 @@ public class OperatorFactory {
                 return (MULTIPLICATION);
             case "/":
                 return (DIVISION);
+            case "²":
+                return (SQUARE);
             default:
                 throw new IllegalArgumentException("invalid operator "+sign);
         }

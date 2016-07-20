@@ -7,11 +7,11 @@ public class Stack {
 
     private Deque<Operande> stack = new ArrayDeque<>();
 
-    public void pop(Operande operande){
+    public void push(Operande operande){
         stack.addLast(operande);
     }
 
-    public Operande last(){
+    public Operande pop(){
         return stack.pollLast();
     }
 

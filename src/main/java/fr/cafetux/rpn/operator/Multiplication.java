@@ -11,8 +11,8 @@ public class Multiplication extends Operator {
     }
 
     public Operande operate(Stack stack) {
-        Operande operande2 = stack.last();
-        Operande operande1 = stack.last();
+        Operande operande2 = stack.pop();
+        Operande operande1 = stack.pop();
         return operande1.multiplyBy(operande2);
     }
 }

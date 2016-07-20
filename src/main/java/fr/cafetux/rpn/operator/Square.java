@@ -3,16 +3,15 @@ package fr.cafetux.rpn.operator;
 import fr.cafetux.rpn.Operande;
 import fr.cafetux.rpn.Stack;
 
-public class Division extends Operator {
+public class Square extends Operator {
 
-    Division() {
+    Square() {
         super();
     }
 
     @Override
     public Operande operate(Stack stack) {
-        Operande operande2 = stack.pop();
         Operande operande1 = stack.pop();
-        return operande1.divideBy(operande2);
+        return Operande.from(operande1.toFloat()*operande1.toFloat());
     }
 }

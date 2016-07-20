@@ -42,6 +42,11 @@ public class RpnCalculatorTest {
     }
 
     @Test
+    public void should_square_operands() {
+        assertThat(result("5 2* ²")).isEqualTo(100.0f);
+    }
+
+    @Test
     public void should_divide_operands() {
         assertThat(result("2 2/")).isEqualTo(1.0f);
     }

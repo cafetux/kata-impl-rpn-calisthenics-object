@@ -22,12 +22,12 @@ public class RpnCalculator {
 
     private void resolveMember(Stack toOperate, ExpressionMember member) {
         if(member.isNumeric()){
-           toOperate.pop(toOperande(member));
+           toOperate.push(toOperande(member));
             return;
         }
         Operator operator = factory.get(member.value());
         Operande result = operator.operate(toOperate);
-        toOperate.pop(result);
+        toOperate.push(result);
     }
 
     private Operande toOperande(ExpressionMember member) {
