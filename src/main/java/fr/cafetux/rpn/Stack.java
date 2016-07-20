@@ -15,7 +15,7 @@ public class Stack {
         return stack.pollLast();
     }
 
-    public float unique() {
+    public float getResult() {
         if(stack.size()>1){
             throw new IllegalStateException("incomplete calcul, missing resolutions");
         }

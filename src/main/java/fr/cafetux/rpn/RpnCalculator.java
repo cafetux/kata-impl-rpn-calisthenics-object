@@ -1,9 +1,14 @@
 package fr.cafetux.rpn;
 
 import fr.cafetux.rpn.operator.*;
-import fr.cafetux.rpn.parser.ExpressionMember;
-import fr.cafetux.rpn.parser.RpnExpression;
+import fr.cafetux.rpn.scanner.expression.Expression;
+import fr.cafetux.rpn.scanner.expression.ExpressionMember;
+import fr.cafetux.rpn.scanner.parser.SimpleParser;
 
+import java.util.function.Predicate;
+import java.util.regex.Pattern;
+
+import static fr.cafetux.rpn.Operand.from;
 import static fr.cafetux.rpn.operator.Addition.ADDITION;
 import static fr.cafetux.rpn.operator.Division.DIVISION;
 import static fr.cafetux.rpn.operator.Multiplication.MULTIPLICATION;
@@ -12,7 +17,12 @@ import static fr.cafetux.rpn.operator.Square.SQUARE;
 
 public class RpnCalculator {
 
+    private static final Pattern NUMERIC_PATTERN = Pattern.compile("^[0-9]+$");
+    private static final Predicate<String> NUMERIC = x->NUMERIC_PATTERN.matcher(x).find();
+
     private OperatorFactory factory = new OperatorFactory();
+    private SimpleParser parser = new SimpleParser("\\s");
+
     {
         factory.register("+", ADDITION);
         factory.register("-", SOUSTRACTION);
@@ -23,17 +33,16 @@ public class RpnCalculator {
 
     public float resolve(String input) {
 
-        RpnExpression expression = new RpnExpression(input);
+        Expression expression = parser.parse(input);
         Stack toOperate = new Stack();
-
         for (ExpressionMember member : expression) {
             toOperate=resolveMember(toOperate, member);
         }
-        return toOperate.unique();
+        return toOperate.getResult();
     }
 
     private Stack resolveMember(Stack toOperate, ExpressionMember member) {
-        if(member.isNumeric()){
+        if(member.is(NUMERIC)){
            toOperate.push(toOperande(member));
             return toOperate;
         }
@@ -42,6 +51,6 @@ public class RpnCalculator {
     }
 
     private Operand toOperande(ExpressionMember member) {
-        return Operand.from(member.toString());
+        return from(member.toString());
     }
 }

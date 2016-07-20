@@ -1,5 +1,8 @@
-package fr.cafetux.rpn.parser;
+package fr.cafetux.rpn.scanner.expression;
 
+
+
+import java.util.function.Predicate;
 
 public class ExpressionMember {
 
@@ -9,8 +12,8 @@ public class ExpressionMember {
         this.value = value;
     }
 
-    public boolean isNumeric(){
-        return false;
+    public boolean is(Predicate<String> predicate){
+        return predicate.test(value);
     }
 
     @Override
