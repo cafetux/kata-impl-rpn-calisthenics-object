@@ -8,35 +8,21 @@ import java.util.regex.Pattern;
  */
 public class RpnExpression extends Expression {
 
-    private Pattern numberPattern = Pattern.compile("^[0-9]$");
-    private ExpressionMember current;
+    private Pattern numberPattern = Pattern.compile("^[0-9]+$");
 
     public RpnExpression(String expression) {
-        current = new NumericExpressionMember();
-        for (String character : expression.split("")) {
+        for (String character : expression.split("\\s")) {
             readCharacter(character);
         }
     }
 
     private void readCharacter(String character) {
         Matcher matcher = numberPattern.matcher(character);
-        if(character.equals(" ")){
-            current = addNumericExpressionMember(current);
-            return;
-        }
         if (matcher.find()) {
-            current.concat(character);
+            add(new NumericExpressionMember(character));
             return;
         }
-        current = addNumericExpressionMember(current);
         add(new ExpressionMember(character));
     }
 
-    private ExpressionMember addNumericExpressionMember(ExpressionMember current) {
-        if(current.isFilled()) {
-            add(current);
-            current = new NumericExpressionMember();
-        }
-        return current;
-    }
 }
