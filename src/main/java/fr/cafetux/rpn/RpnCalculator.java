@@ -26,11 +26,11 @@ public class RpnCalculator {
             return;
         }
         Operator operator = factory.get(member.value());
-        Operande result = operator.operate(toOperate);
+        Operand result = operator.operate(toOperate);
         toOperate.push(result);
     }
 
-    private Operande toOperande(ExpressionMember member) {
-        return Operande.from(member.value());
+    private Operand toOperande(ExpressionMember member) {
+        return Operand.from(member.value());
     }
 }

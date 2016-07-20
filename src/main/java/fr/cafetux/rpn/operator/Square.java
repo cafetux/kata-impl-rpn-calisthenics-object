@@ -1,6 +1,6 @@
 package fr.cafetux.rpn.operator;
 
-import fr.cafetux.rpn.Operande;
+import fr.cafetux.rpn.Operand;
 import fr.cafetux.rpn.Stack;
 
 public class Square extends Operator {
@@ -10,8 +10,8 @@ public class Square extends Operator {
     }
 
     @Override
-    public Operande operate(Stack stack) {
-        Operande operande1 = stack.pop();
-        return Operande.from(operande1.toFloat()*operande1.toFloat());
+    public Operand operate(Stack stack) {
+        Operand operand1 = stack.pop();
+        return Operand.from(operand1.toFloat() * operand1.toFloat());
     }
 }

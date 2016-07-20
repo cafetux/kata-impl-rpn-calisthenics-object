@@ -1,6 +1,6 @@
 package fr.cafetux.rpn.operator;
 
-import fr.cafetux.rpn.Operande;
+import fr.cafetux.rpn.Operand;
 import fr.cafetux.rpn.Stack;
 
 public class Soustraction extends Operator {
@@ -10,9 +10,9 @@ public class Soustraction extends Operator {
     }
 
     @Override
-    public Operande operate(Stack stack) {
-        Operande operande2 = stack.pop();
-        Operande operande1 = stack.pop();
-        return operande1.moins(operande2);
+    public Operand operate(Stack stack) {
+        Operand operand2 = stack.pop();
+        Operand operand1 = stack.pop();
+        return operand1.moins(operand2);
     }
 }

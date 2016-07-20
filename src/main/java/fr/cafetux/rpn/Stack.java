@@ -5,13 +5,13 @@ import java.util.Deque;
 
 public class Stack {
 
-    private Deque<Operande> stack = new ArrayDeque<>();
+    private Deque<Operand> stack = new ArrayDeque<>();
 
-    public void push(Operande operande){
-        stack.addLast(operande);
+    public void push(Operand operand){
+        stack.addLast(operand);
     }
 
-    public Operande pop(){
+    public Operand pop(){
         return stack.pollLast();
     }
 
@@ -22,7 +22,7 @@ public class Stack {
         return getFirst().toFloat();
     }
 
-    private Operande getFirst() {
+    private Operand getFirst() {
         return stack.getFirst();
     }
 }
