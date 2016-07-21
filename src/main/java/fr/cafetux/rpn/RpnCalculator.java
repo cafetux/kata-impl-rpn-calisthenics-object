@@ -41,13 +41,13 @@ public class RpnCalculator {
         return toOperate.getResult();
     }
 
-    private Stack resolveMember(Stack toOperate, ExpressionMember member) {
+    private Stack resolveMember(Stack stack, ExpressionMember member) {
         if(member.is(NUMERIC)){
-           toOperate.push(toOperande(member));
-            return toOperate;
+			stack.push(toOperande(member));
+			return stack;
         }
         Operator operator = factory.get(member.toString());
-        return operator.operate(toOperate);
+        return operator.operate(stack);
     }
 
     private Operand toOperande(ExpressionMember member) {

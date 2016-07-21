@@ -19,22 +19,6 @@ public class Operand {
         return new Operand(numberParsing);
     }
 
-    public Operand plus(Operand o2) {
-        return new Operand(this.value+o2.value);
-    }
-
-    public Operand moins(Operand o2) {
-        return new Operand(this.value-o2.value);
-    }
-
-    public Operand multiplyBy(Operand o2) {
-        return new Operand(this.value*o2.value);
-    }
-
-    public Operand divideBy(Operand o2) {
-        return new Operand(this.value/o2.value);
-    }
-
     public float toFloat() {
         return value;
     }

@@ -15,7 +15,7 @@ public class Soustraction implements Operator {
     public Stack operate(Stack stack) {
         Operand operand2 = stack.pop();
         Operand operand1 = stack.pop();
-        stack.push(operand1.moins(operand2));
+        stack.push(Operand.from(operand1.toFloat()-operand2.toFloat()));
         return stack;
     }
 }
