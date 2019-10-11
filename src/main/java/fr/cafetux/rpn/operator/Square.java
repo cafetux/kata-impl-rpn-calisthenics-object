@@ -1,9 +1,9 @@
 package fr.cafetux.rpn.operator;
 
-import fr.cafetux.rpn.Operand;
+import fr.cafetux.rpn.operand.Operand;
 import fr.cafetux.rpn.Stack;
 
-import static fr.cafetux.rpn.Operand.from;
+import static fr.cafetux.rpn.operand.Numeric.from;
 
 public class Square implements Operator {
 

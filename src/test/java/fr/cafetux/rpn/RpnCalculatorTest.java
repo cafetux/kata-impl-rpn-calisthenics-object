@@ -70,6 +70,15 @@ public class RpnCalculatorTest {
         assertThat(result("3 4 2 1 + * + 2 /")).isEqualTo(7.5f);
     }
 
+    @Test
+    public void should_accept_aggregat_operator() {
+        assertThat(result("5 6 20 2 MAX")).isEqualTo(20.0f);
+    }
+
+    @Test
+    public void should_aggregat_operator_works_when_multiples() {
+        assertThat(result("20 2 MAX 3 2 MAX +")).isEqualTo(23.0f);
+    }
 
     private float result(String expression) {
         return calculator.resolve(expression);
